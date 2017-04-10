@@ -1,6 +1,6 @@
 package com.zt.services.impl;
 
-import com.zt.dao.IUserDao;
+import com.zt.dao.IUserMapper;
 import com.zt.model.User;
 import com.zt.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
  * @作者: luj
  * @时间: 2017/4/7 16:34
  */
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
     @Override
     public User get(User user) {
-        return uDao.get(user);
+        return userMapper.get(user);
     }
     @Autowired
-    private IUserDao uDao;
+    private IUserMapper userMapper;
 }

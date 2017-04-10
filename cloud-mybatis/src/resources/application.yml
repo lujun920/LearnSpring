@@ -1,0 +1,37 @@
+# Server settings
+server:
+    port:8080
+    address:localhost
+
+# DATASOURCE
+jdbc:
+    dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+    #url: jdbc:mysql://localhost:3306/test?useUnicode=true&charaterEncoding=utf-8
+    url: jdbc:mysql://139.224.227.35:3306/meelin?useUnicode=true&charaterEncoding=utf-8
+    databaseName: meelin
+    serverName: 139.224.227.35
+    username: root
+    password: 123456
+    cachePrepStmts: true
+    prepStmtsSize: 250
+    prepStmtsCacheSqlLimit: 2048
+    userServerPrepStmts: true
+
+# SPRING PROFILES
+spring:
+    # HTTP ENCODING
+    http:
+        encoding.charset: UTF-8
+        encoding.enable: true
+        encoding.force: true
+
+# MyBatis
+mybatis:
+    typeAliasesPackage: com.zt.model
+    mapperLocations: classpath:/com/zt/model/mapper/*.xml
+    configLocation: classpath:/mybatis-config.xml
+
+# LOGGING
+logging:
+    level:
+       com.ibatis:DEBUG

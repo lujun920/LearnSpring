@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zt.model.mapper.IUserMapper">
-	<resultMap id="fieldMapper" type="User">
+<mapper namespace="com.zt.dao.IUserMapper">
+	<resultMap id="fieldMapper" type="com.zt.model.User">
 		<id property="userId" column="userId" /><!--  -->
 		<result property="username" column="username" /><!--  -->
 		<result property="salt" column="salt" /><!--  -->
@@ -60,19 +60,19 @@
 		<if test="errorCount!=null" >ERROR_COUNT=#{errorCount,jdbcType=INTEGER}</if>
 	</sql>
 
-	<insert id="save" parameterType="SUser">
+	<insert id="save" parameterType="com.zt.model.User">
 		INSERT INTO S_USER(<include refid="field" />) VALUES (<include refid="property" />)
 	</insert>
-	<delete id="remove" parameterType="SUser">
+	<delete id="remove" parameterType="com.zt.model.User">
 		DELETE FROM S_USER<include refid="idCnd" />
 	</delete>
-	<select id="get" resultType="SUser" parameterType="SUser">
+	<select id="get" resultType="com.zt.model.User" parameterType="com.zt.model.User">
 		SELECT<include refid="fieldAsProperty" />FROM S_USER<include refid="idCnd" />
 	</select>
-	<update id="update" parameterType="SUser">
+	<update id="update" parameterType="com.zt.model.User">
 		UPDATE S_USER<set><include refid="fieldEqPropertyIf" /></set><include refid="idCnd" />
 	</update>
-	<update id="forceUpdate" parameterType="SUser">
+	<update id="forceUpdate" parameterType="com.zt.model.User">
 		UPDATE S_USER<set><include refid="fieldEqProperty" /></set><include refid="idCnd" />
 	</update>
 	<!-- ==================以上为单记录操作,以下为多记录操作================== -->
