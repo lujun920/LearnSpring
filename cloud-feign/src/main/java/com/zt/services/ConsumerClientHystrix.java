@@ -1,6 +1,8 @@
 package com.zt.services;
 
+import com.zt.model.User;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -25,4 +27,10 @@ public class ConsumerClientHystrix implements ConsumerClient {
         listMap.add(map);
         return listMap;
     }
+
+    @Override
+    public User save(@ModelAttribute("user") User user) {
+        return null;
+    }
+
 }
