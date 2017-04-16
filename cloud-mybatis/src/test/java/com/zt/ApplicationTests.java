@@ -26,7 +26,7 @@ public class ApplicationTests {
     public void findByName() throws Exception {
         User u = new User();
         u.setUserId(1);
-        u = userService.get(u);
+        u = userService.getBean(u);
         System.out.println("username: "+u.getUserName());
     }
 }

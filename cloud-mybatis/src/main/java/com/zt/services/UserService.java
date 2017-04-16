@@ -10,5 +10,5 @@ import com.zt.model.User;
  * @时间: 2017/4/7 16:29
  */
 public interface UserService {
-    public User get(User user);
+    public User getBean(User user);
 }

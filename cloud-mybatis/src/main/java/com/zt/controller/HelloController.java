@@ -1,13 +1,13 @@
 package com.zt.controller;
 
 import com.zt.model.User;
+import com.zt.services.UserService;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p/>类文件: com.zt.controller
@@ -17,11 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @时间: 2017/4/10 10:57
  */
 @Controller
+@MapperScan("com.zt.dao")
 public class HelloController {
     private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
     @RequestMapping(value="/getbean/{id}", method= RequestMethod.GET)
-    public User getBean(@PathVariable Integer id){
+    public @ResponseBody User getBean(@PathVariable Integer id){
         User u= new User();
+        u.setUserId(id);
+        u=userService.getBean(u);
         return u;
     }
+    @Autowired
+    private UserService userService;
 }
