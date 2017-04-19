@@ -5,6 +5,7 @@ import com.zt.services.ConsumerClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class ConsumerController {
     @Autowired
     ConsumerClient consumerClient;
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add() {
+    public String add(HttpRequest request) {
         long startTime= System.currentTimeMillis();
         List<Map<String, String>> listMap= consumerClient.add(100000, 20);
         long endTime= System.currentTimeMillis();
@@ -48,4 +49,5 @@ public class ConsumerController {
         logger.info("响应时间: {}ms", (endTime-startTime));
         return u;
     }
+
 }

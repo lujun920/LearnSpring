@@ -43,7 +43,8 @@ public class ServiceController {
             listMap.add(map);
         }
         long endTime= System.currentTimeMillis();
-        logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + a+" array: "+(endTime-startTime));
+        logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + a
+                +" array: "+(endTime-startTime));
         return listMap;
     }
 
