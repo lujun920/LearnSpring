@@ -25,6 +25,7 @@ public class HelloController {
         User u= new User();
         u.setUserId(id);
         u=userService.getBean(u);
+        logger.info("777************************************************");
         return u;
     }
     @Autowired
