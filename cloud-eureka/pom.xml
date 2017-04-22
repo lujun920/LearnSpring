@@ -56,12 +56,37 @@
       </plugin>
 
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <id>copy-xmls</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/src/main/resouces</directory>
+                  <includes>
+                    <include>*</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>com.spotify</groupId>
         <artifactId>docker-maven-plugin</artifactId>
         <version>0.4.13</version>
         <configuration>
           <imageName>${project.artifactId}</imageName>
-          <dockerDirectory>src/main/docker</dockerDirectory>
+          <dockerDirectory>src/main/resources</dockerDirectory>
           <resources>
             <resource>
               <targetPath>/</targetPath>
