@@ -1,0 +1,11 @@
+#docker 服务编排配置
+eureka:
+  image: lujing/cloud-eureka
+  ports:
+   - "8000:8000"
+  links:
+   - eureka1
+eureka1:
+  image: lujing/cloud-eureka1
+  ports:
+   - "8001:8001"
